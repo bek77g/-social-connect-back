@@ -66,11 +66,12 @@
       "configurable": false
     },
     "avatar": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "messages": {
       "type": "relation",
@@ -83,6 +84,11 @@
       "relation": "manyToMany",
       "target": "api::chat.chat",
       "mappedBy": "participants"
+    },
+    "friends": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "plugin::users-permissions.user"
     }
   }
 }

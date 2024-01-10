@@ -29,7 +29,7 @@ export default {
             socket.on("client-message", (messageData) => {
               console.log("Server: " + messageData);
 
-              strapi.$io.raw("client-message", messageData);
+              strapi.$io.raw("server-message", messageData);
             });
           },
         },
