@@ -399,12 +399,13 @@ export interface ApiMessageMessage extends Schema.CollectionType {
     singularName: 'message';
     pluralName: 'messages';
     displayName: 'Message';
+    description: '';
   };
   options: {
     draftAndPublish: false;
   };
   attributes: {
-    text: Attribute.Text;
+    text: Attribute.Text & Attribute.Required;
     sender: Attribute.Relation<
       'api::message.message',
       'manyToOne',
