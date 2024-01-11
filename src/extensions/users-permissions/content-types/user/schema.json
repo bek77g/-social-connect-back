@@ -79,17 +79,17 @@
       "target": "api::message.message",
       "mappedBy": "sender"
     },
-    "user_relationship": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::user-relationship.user-relationship",
-      "mappedBy": "relatedUser"
-    },
     "chats": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::chat.chat",
       "mappedBy": "participants"
+    },
+    "friends": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::user-relationship.user-relationship",
+      "mappedBy": "friendshipRelation"
     }
   }
 }

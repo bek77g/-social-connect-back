@@ -440,19 +440,15 @@ export interface ApiUserRelationshipUserRelationship
     singularName: 'user-relationship';
     pluralName: 'user-relationships';
     displayName: 'UserRelationship';
+    description: '';
   };
   options: {
     draftAndPublish: false;
   };
   attributes: {
-    relatingUser: Attribute.Relation<
+    friendshipRelation: Attribute.Relation<
       'api::user-relationship.user-relationship',
-      'oneToOne',
-      'plugin::users-permissions.user'
-    >;
-    relatedUser: Attribute.Relation<
-      'api::user-relationship.user-relationship',
-      'oneToOne',
+      'manyToMany',
       'plugin::users-permissions.user'
     >;
     createdAt: Attribute.DateTime;
@@ -866,15 +862,15 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'oneToMany',
       'api::message.message'
     >;
-    user_relationship: Attribute.Relation<
-      'plugin::users-permissions.user',
-      'oneToOne',
-      'api::user-relationship.user-relationship'
-    >;
     chats: Attribute.Relation<
       'plugin::users-permissions.user',
       'manyToMany',
       'api::chat.chat'
+    >;
+    friends: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'manyToMany',
+      'api::user-relationship.user-relationship'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

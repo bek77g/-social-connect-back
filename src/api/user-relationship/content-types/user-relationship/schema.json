@@ -4,24 +4,19 @@
   "info": {
     "singularName": "user-relationship",
     "pluralName": "user-relationships",
-    "displayName": "UserRelationship"
+    "displayName": "UserRelationship",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
-    "relatingUser": {
+    "friendshipRelation": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "manyToMany",
       "target": "plugin::users-permissions.user",
-      "inversedBy": "user_relationship"
-    },
-    "relatedUser": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "plugin::users-permissions.user",
-      "inversedBy": "user_relationship"
+      "inversedBy": "friends"
     }
   }
 }
