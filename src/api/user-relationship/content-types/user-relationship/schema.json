@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_relationships",
+  "info": {
+    "singularName": "user-relationship",
+    "pluralName": "user-relationships",
+    "displayName": "UserRelationship"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "relatingUser": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "user_relationship"
+    },
+    "relatedUser": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "user_relationship"
+    }
+  }
+}
